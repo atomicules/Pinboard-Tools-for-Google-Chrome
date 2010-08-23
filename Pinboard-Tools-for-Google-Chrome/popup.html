@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<script src="addPinboard.js" type="text/javascript"></script>
+		<style type="text/css">
+			body {
+				margin: 1px;
+			}
+			div.toolstrip-button {
+				color: #333;
+				cursor: hand;
+				font: normal 13px arial, sans-serif;
+				width: 120px;
+				padding: 6px;
+				border-bottom: 1px dotted #AAA
+			}
+			div.toolstrip-button:last-child {
+				border-bottom-style: none;
+			}
+			div.toolstrip-button:hover {
+				background-color: #FFC;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="toolstrip-button" onclick="add_bookmark()">
+			Save to Pinboard
+		</div>
+		<div class="toolstrip-button" onclick="add_later()">
+			Read later
+		</div>
+		<div class="toolstrip-button" onclick="chrome.tabs.create({url:'http://pinboard.in/toread/'}); window.close();">
+			My unread items
+		</div>
+		<div class="toolstrip-button" onclick="chrome.tabs.create({url:'http://pinboard.in/'}); window.close();">
+			My Pinboard
+		</div>
+		<div class="toolstrip-button" onclick="chrome.tabs.create({url:'http://pinboard.in/network/'}); window.close();">
+			My Network
+		</div>
+	</body>
+</html>

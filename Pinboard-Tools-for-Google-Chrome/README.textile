@@ -1,0 +1,12 @@
+h1. Pinboard Tools for Google Chrome
+
+An extension for Google Chrome that adds a button in the toolbar for easy access to "Pinboard":http://pinboard.in commands.
+
+h2. Author
+
+Written by JE Vasshaug, 2009
+Based on the "Del.icio.us Tools extension":https://chrome.google.com/extensions/detail/gclkcflnjahgejhappicbhcpllkpakej by sweaterbox
+
+h2. Changes
+* 1.2 -- Fixed problem with special characters in urls + other small bugfixes.
+* 1.1 -- Added link to unread items and tightened margins.
