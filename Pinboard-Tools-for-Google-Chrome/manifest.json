@@ -6,7 +6,7 @@
    },
    "content_scripts": [ {
       "js": [ "pinboard_content_script.js" ],
-      "matches": [ "http://*/*" ]
+      "matches": [ "http://*/*", "https://*/*" ]
    } ],
    "description": "Toolbar actions for Pinboard (http://pinboard.in)",
    "icons": {
@@ -17,7 +17,7 @@
    },
    "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQClftffKIxHdjrygK9XFnePljat1CZCl66VwjFHnJoRQK3SNGtNeGXbkiTpZFjkcVxOP9Mvpyu+hQi8382sB6R50SbLF0hslddOJKzziID1IbFF5k6Ij7JNnt8qFp6/eZakfWA097ymQPxuxoCrnAXh+7IpgA3HXCuq5ypQJ/a03QIDAQAB",
    "name": "Pinboard Tools",
-   "permissions": [ "tabs" ],
+   "permissions": [ "tabs", "<all_urls>" ],
    "update_url": "http://clients2.google.com/service/update2/crx",
    "version": "1.2"
 }

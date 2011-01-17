@@ -1,6 +1,17 @@
 <html>
 	<head>
 		<script src="addPinboard.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			//From http://code.google.com/chrome/extensions/messaging.html
+			//Used to set bookmark description to selected text
+			chrome.tabs.getSelected(null, function(tab) {
+			  // Send a request to the content script.
+			  chrome.tabs.sendRequest(tab.id, {action: "getTXT"}, function(response) {
+				  pbdescription = response.description;
+			  });
+		  });
+	  </script>
+
 		<style type="text/css">
 			body {
 				margin: 1px;

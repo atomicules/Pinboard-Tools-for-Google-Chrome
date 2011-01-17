@@ -5,7 +5,17 @@ function add_bookmark() {
 	chrome.tabs.getSelected( null , function(tab) {
  		url = (tab.url);
  		title = (tab.title);
- 		window.open(pinboardUrl + 'url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title) + ' ','Pinboard','toolbar=no,width=700,height=350');
+		docurl = pinboardUrl + 'url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title) + '&description=' + encodeURIComponent(pbdescription) + ' ','Pinboard','toolbar=no,width=700,height=350';
+		//Load save bookmark window in iFrame
+		pbiframe = document.createElement('iframe');
+		pbiframe.src = docurl;
+		pbiframe.frameBorder = "0";
+		pbiframe.width = "100%";
+		pbiframe.height = "100%";
+		document.body.innerHTML = "" ; //clear popup window
+		document.body.style.width = "700px";
+		document.body.style.height = "300px";//grow window
+		document.body.appendChild(pbiframe);
 	});
 }
 
