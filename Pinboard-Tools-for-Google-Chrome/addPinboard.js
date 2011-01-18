@@ -14,7 +14,7 @@ function add_bookmark() {
 		pbiframe.height = "100%";
 		document.body.innerHTML = "" ; //clear popup window
 		document.body.style.width = "700px";
-		document.body.style.height = "300px";//grow window
+		document.body.style.height = "350px";//grow window
 		document.body.appendChild(pbiframe);
 	});
 }
