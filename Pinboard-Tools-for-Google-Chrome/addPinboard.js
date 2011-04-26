@@ -87,6 +87,7 @@ function makeTabList(windows) {
 	var req   = new XMLHttpRequest(); 
 
 	params.append("data", JSON.stringify(result));
+	console.log(JSON.stringify(result));
 	req.open("POST", SUBMIT_URL, true);        
 
 	req.onreadystatechange = function() {
