@@ -2,10 +2,12 @@ var BASE_URL = 'https://pinboard.in';
 var pinboardUrl = BASE_URL+"/add?";
 var url;
 var title;
+var pbdescription = "";
 function add_bookmark() {
 	chrome.tabs.getSelected( null , function(tab) {
  		url = (tab.url);
  		title = (tab.title);
+
 		docurl = pinboardUrl + 'url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title) + '&description=' + encodeURIComponent(pbdescription) + ' ','Pinboard','toolbar=no,width=700,height=350';
 		//Load save bookmark window in iFrame
 		pbiframe = document.createElement('iframe');
