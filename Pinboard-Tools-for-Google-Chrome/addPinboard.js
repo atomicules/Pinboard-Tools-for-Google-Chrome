@@ -26,7 +26,21 @@ function add_later() {
 	chrome.tabs.getSelected( null , function(tab) {
  		url = (tab.url);
  		title = (tab.title);
- 		window.open(pinboardUrl + 'later=yes&noui=yes&jump=close&url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title) + ' ','Pinboard','toolbar=no,width=100,height=100');
+		docurl = pinboardUrl + 'later=yes&noui=yes&jump=close&url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title) + ' ','Pinboard','toolbar=no,width=100,height=100';
+		//Let's do this in an iFrame as well (or background page?)
+		pbiframe = chrome.extension.getBackgroundPage().document.createElement('iframe');
+		pbiframe.src = docurl;
+		chrome.extension.getBackgroundPage().document.body.innerHTML = "" ; //clear any existing one
+		chrome.extension.getBackgroundPage().document.body.appendChild(pbiframe); 
+		//Need to close the popup
+		
+		//Not sure how to handle feedback. If not logged in, etc?
+		//Check for success?
+		//Change icon:
+		chrome.browserAction.setIcon({path:"img/pinboard16-green.png"})
+		//Delay and then change back. This isn't very good. Should close straight away.
+		//Think I need this code in the background page
+		setTimeout('chrome.browserAction.setIcon({path:"img/pinboard16.png"});window.close()', 2000)
 	});
 }
 

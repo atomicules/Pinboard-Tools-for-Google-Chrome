@@ -12,6 +12,7 @@
 		"matches": [ "https://pinboard.in/add*" ],
 		"all_frames": true
    } ],
+   "background_page": "background.html",
    "description": "Toolbar actions for Pinboard (http://pinboard.in)",
    "icons": {
       "128": "img/pinboard128.png",
