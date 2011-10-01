@@ -64,13 +64,15 @@ function log(txt) {
 //Modify the iFrame
 	//Save values on onload, but only if none blank and it's not a previously saved bookmark
 	//Provides a bit of safety if accidentally click on popup in different tab
-	document.body.onunload = function () {
+
+
+addEventListener("unload", function (event) {
 		if ((document.forms[0].tags.value != "") && (document.forms[0].description.value != "" ) && (document.getElementsByClassName('alert')[0] == undefined)) {
 			setItem('url',document.forms[0].url.value); 
 			setItem('tags',document.forms[0].tags.value); 
 			setItem('description', document.forms[0].description.value)
 		}
-	}
+}, true);
 	
 	//Check if url matches
 	if (document.forms[0].url.value == getItem("url")) {
@@ -83,3 +85,4 @@ function log(txt) {
 			document.forms[0].description.value = getItem("description")
 		}
 	}
+
