@@ -22,7 +22,7 @@ function add_bookmark() {
 	});
 }
 
-function add_later() {
+function read_later() {
 	chrome.tabs.getSelected( null , function(tab) {
  		url = (tab.url);
  		title = (tab.title);
@@ -103,3 +103,19 @@ function makeTabList(windows) {
 	req.send(params);
 }
 
+
+//From http://code.google.com/chrome/extensions/messaging.html
+//Used to set bookmark description to selected text
+chrome.tabs.getSelected(null, function(tab) {
+	// Send a request to the content script.
+	chrome.tabs.sendRequest(tab.id, {action: "getTXT"}, function(response) {
+	pbdescription = response.description;
+	});
+});
+
+//Add event listeners to suit Manifest 2 requirements; no inline js
+document.addEventListener('DOMContentLoaded', function () {
+	document.getElementById('stp').addEventListener('click', add_bookmark);
+	document.getElementById('rl').addEventListener('click', read_later);
+	document.getElementById('sts').addEventListener('click', save_tabs);
+});

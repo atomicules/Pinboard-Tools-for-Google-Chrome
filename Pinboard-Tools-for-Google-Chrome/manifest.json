@@ -2,7 +2,7 @@
    "browser_action": {
       "default_icon": "img/pinboard16.png",
       "default_title": "Pinboard Tools",
-      "popup": "popup.html"
+      "default_popup": "popup.html"
    },
    "content_scripts": [ {
       "js": [ "pinboard_content_script.js" ],
@@ -12,7 +12,9 @@
 		"matches": [ "https://pinboard.in/add*" ],
 		"all_frames": true
    } ],
-   "background_page": "background.html",
+   "background": {
+		"scripts": ["background.js"]
+	},
    "description": "Toolbar actions for Pinboard (http://pinboard.in)",
    "icons": {
       "128": "img/pinboard128.png",
@@ -22,5 +24,6 @@
    },
    "name": "Pinboard Tools",
    "permissions": [ "tabs", "<all_urls>" ],
-   "version": "1.3.4"
+   "version": "1.3.5",
+   "manifest_version": 2
 }

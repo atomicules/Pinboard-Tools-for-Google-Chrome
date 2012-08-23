@@ -1,46 +1,33 @@
 <html>
 	<head>
 		<script src="popup.js" type="text/javascript"></script>
-		<script type="text/javascript">
-			//From http://code.google.com/chrome/extensions/messaging.html
-			//Used to set bookmark description to selected text
-			chrome.tabs.getSelected(null, function(tab) {
-			  // Send a request to the content script.
-			  chrome.tabs.sendRequest(tab.id, {action: "getTXT"}, function(response) {
-				  pbdescription = response.description;
-			  });
-		  });
-	  </script>
 
 		<style type="text/css">
 			body {
-				margin: 1px;
+				margin: 0px;
 			}
-			div.toolstrip-button {
+			button {
 				color: #333;
 				cursor: hand;
 				font: normal 13px arial, sans-serif;
 				width: 120px;
 				padding: 6px;
+				border: none;
+				margin: 0px;
 				border-bottom: 1px dotted #AAA
 			}
-			div.toolstrip-button:last-child {
+			button:last-child {
 				border-bottom-style: none;
 			}
-			div.toolstrip-button:hover {
+			button:hover {
 				background-color: #FFC;
 			}
 		</style>
 	</head>
 	<body>
-		<div class="toolstrip-button" onclick="add_bookmark()">
-			Save to Pinboard
-		</div>
-		<div class="toolstrip-button" onclick="add_later()">
-			Read later
-		</div>
-		<div class="toolstrip-button" onclick="save_tabs()">
-			Save tab set
-		</div>
+		<button id="stp">Save to Pinboard</button>
+		<button id="rl">Read later</button>
+		<button id="sts">Save tab set</button>	
 	</body>
 </html>
+
